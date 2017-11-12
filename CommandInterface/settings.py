@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '%r@+-04iv2k!h7)fb5*m3au4x$%%u#
 #DEBUG = True
 DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ai-cloud.herokuapp.com']
 
 
 # Application definition
@@ -40,12 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'UserControls.apps.UsercontrolsConfig',
-    #'rest_framework',
+    'rest_framework',
 ]
 
 REST_FRAMEWORK = {
    'DEFAULT_AUTHENTICATION_CLASSES': [
-       #'rest_framework.authentication.TokenAuthentication',
+       'rest_framework.authentication.TokenAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAdminUser',
