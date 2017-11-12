@@ -44,13 +44,14 @@ router.register(r'groups', views.GroupViewSet)
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
+    url(r'^', include ('hub.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^', include(router.urls)),
+    url(r'^RestAPI/', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     
     #tutorial 1 lib...
     url(r'^catalog/', include('UserControls.urls')),
-    url(r'^$', RedirectView.as_view(url='/catalog/', permanent=True)),
+    #url(r'^$', RedirectView.as_view(url='/catalog/', permanent=True)),
     
     #Add Django site authentication urls (for login, logout, password management)
     url(r'^accounts/', include('django.contrib.auth.urls'))

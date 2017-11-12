@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   
-  {% block title %}<title>Local Library</title>{% endblock %}
+  {% block title %}<title>Default Title</title>{% endblock %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -24,14 +24,12 @@
       <ul class="sidebar-nav">
           {% load static %} 
           <a href="{% url 'index1' %}">
-          <IMG SRC="{% static 'images/small.jpeg'%}" ALT="home_icon" WIDTH=60 HEIGHT=60></a>
-          <li><a href="{% url 'catalog' %}">Home</a></li>
-          <li><a href="{% url 'books' %}">All books</a></li>
-          <li><a href="">All authors</a></li>
+          <IMG SRC="{% static 'images/small.jpeg'%}" ALT="home_icon" WIDTH=60 HEIGHT=60> </a>
+          <li><a href="{% url 'index1' %}">Home</a></li>
             
           {% if user.is_authenticated %}
      <li>User: {{ user.get_username }}</li>
-        <li><a href="{% url 'my-borrowed' %}">My Borrowed</a></li>
+        <li>You are Logged In!</li>
      <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>   
    {% else %}
      <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>   
