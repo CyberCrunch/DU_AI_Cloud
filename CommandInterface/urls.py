@@ -23,6 +23,7 @@ from RestAPI import views
 #mozilla tutorial
 from django.conf.urls import include
 from django.views.generic import RedirectView
+
 # Use static() to add url mapping to serve static files during development (only)
 from django.conf import settings
 from django.conf.urls.static import static
@@ -37,17 +38,17 @@ urlpatterns = [
 
 
 
-router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'groups', views.GroupViewSet)
+#router = routers.DefaultRouter()
+#router.register(r'users', views.UserViewSet)
+#router.register(r'groups', views.GroupViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     url(r'^', include ('hub.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^RestAPI/', include(router.urls)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    #url(r'^RestAPI/', include(router.urls)),
+    #url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     
     #tutorial 1 lib...
     url(r'^catalog/', include('UserControls.urls')),
