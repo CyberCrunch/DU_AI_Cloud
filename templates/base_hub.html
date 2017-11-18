@@ -26,7 +26,11 @@
           <a href="{% url 'index1' %}">
           <IMG SRC="{% static 'images/small.jpeg'%}" ALT="home_icon" WIDTH=60 HEIGHT=60> </a>
           <li><a href="{% url 'index1' %}">Home</a></li>
-            
+         
+          <li><a href="{% url 'overview' %}">Universe Map</a></li>
+          <li><a href="{% url 'index1' %}">Job Board</a></li>
+          <li><a href="{% url 'index1' %}">comming soon...</a></li>
+
           {% if user.is_authenticated %}
      <li>User: {{ user.get_username }}</li>
         <li>You are Logged In!</li>

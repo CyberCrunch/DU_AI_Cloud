@@ -1,0 +1,31 @@
+{% extends "base_hub.html" %}
+
+{% block content %}
+
+<h1>Interactive Map of Dual Universe</h1>
+
+  <p>Welcome to the Network.</p>
+
+<h2>Dynamic content</h2>
+
+          {% load static %} 
+
+    <IMG SRC="{% static 'images/hex_main.png'%}" ALT="mil_icon" WIDTH=600 HEIGHT=500> 
+  <p>.</p>
+
+<div>
+          <a href="{% url 'military' %}">
+          <IMG SRC="{% static 'images/buttons_mil.png'%}" ALT="mil_icon" WIDTH=60 HEIGHT=60> </a>
+    </div>
+
+<div>
+
+          <a href="{% url 'player' %}">
+          <IMG SRC="{% static 'images/buttons_ply.png'%}" ALT="mil_icon" WIDTH=60 HEIGHT=60> </a>
+          <li><a href="{% url 'player' %}">Player Map</a></li>
+    </div>
+                    <li><a href="{% url 'military' %}">Military Map</a></li>
+
+<p>You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
+
+{% endblock %}

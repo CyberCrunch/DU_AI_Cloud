@@ -54,7 +54,10 @@ urlpatterns = [
     #url(r'^$', RedirectView.as_view(url='/catalog/', permanent=True)),
     
     #Add Django site authentication urls (for login, logout, password management)
-    url(r'^accounts/', include('django.contrib.auth.urls'))
+    url(r'^accounts/', include('django.contrib.auth.urls')),
+    
+    url(r'^universe/', include('universe.urls'))
+
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
