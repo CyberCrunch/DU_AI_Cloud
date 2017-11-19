@@ -28,7 +28,9 @@
           <li><a href="{% url 'index1' %}">Home</a></li>
          
           <li><a href="{% url 'overview' %}">Universe Map</a></li>
-          <li><a href="{% url 'index1' %}">Job Board</a></li>
+          <li><a href="{% url 'jobs' %}">Job Board</a></li>
+          <!-- < li><a href="{% url 'index1' %}">test API calls</a></li> -->
+
           <li><a href="{% url 'index1' %}">comming soon...</a></li>
 
           {% if user.is_authenticated %}

@@ -25,6 +25,10 @@
           <li><a href="{% url 'player' %}">Player Map</a></li>
     </div>
                     <li><a href="{% url 'military' %}">Military Map</a></li>
+                    
+          <a href="{% url 'economy' %}">
+          <IMG SRC="{% static 'images/buttons_eco.png'%}" ALT="mil_icon" WIDTH=60 HEIGHT=60> </a>
+          <li><a href="{% url 'economy' %}">Economy Map</a></li>
 
 <p>You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
 

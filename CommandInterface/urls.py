@@ -56,7 +56,9 @@ urlpatterns = [
     #Add Django site authentication urls (for login, logout, password management)
     url(r'^accounts/', include('django.contrib.auth.urls')),
     
-    url(r'^universe/', include('universe.urls'))
+    url(r'^universe/', include('universe.urls')),
+    
+    url(r'^jobs/', include('dashboard.urls'))
 
 ]
 

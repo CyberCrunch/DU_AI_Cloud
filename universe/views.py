@@ -57,11 +57,11 @@ class economyView(generic.ListView):
         context['some_data'] = 'This is just some data'
         return context
 '''        
-class militaryView(generic.DetailView): #prev book detail
+class militaryView(generic.ListView): #prev book detail
     model = military
     
 
-class humansView(LoginRequiredMixin,generic.ListView):
+class humansView(generic.ListView): #LoginRequiredMixin,generic.ListView):
     """
     Generic class-based view listing books on loan to current user. 
     """

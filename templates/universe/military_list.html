@@ -5,14 +5,15 @@
           {% load static %} 
 
     <IMG SRC="{% static 'images/hex_military.png'%}" ALT="mil_icon" WIDTH=600 HEIGHT=500>
+        <h1>.</h1>
 
           <a href="{% url 'economy' %}">
           <IMG SRC="{% static 'images/buttons_eco.png'%}" ALT="mil_icon" WIDTH=60 HEIGHT=60> </a>
-          <li><a href="{% url 'economy' %}">Economy Map</a></li>
 
           <a href="{% url 'player' %}">
           <IMG SRC="{% static 'images/buttons_ply.png'%}" ALT="mil_icon" WIDTH=60 HEIGHT=60> </a>
           <li><a href="{% url 'player' %}">Player Map</a></li>
- 
+           <li><a href="{% url 'economy' %}">Economy Map</a></li>
+
      
 {% endblock %}
