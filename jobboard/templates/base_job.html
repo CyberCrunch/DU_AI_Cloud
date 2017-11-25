@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   
-  {% block title %}<title>Default Title</title>{% endblock %}
+  {% block title %}<title>Job Board</title>{% endblock %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -24,18 +24,15 @@
       <ul class="sidebar-nav">
           {% load static %} 
           <a href="{% url 'index1' %}">
-          <IMG SRC="{% static 'images/small.jpeg'%}" ALT="home_icon" WIDTH=60 HEIGHT=60> </a>
-          <li><a href="{% url 'index1' %}">Home</a></li>
-         
-          <li><a href="{% url 'overview' %}">Universe Map</a></li>
+          <IMG SRC="{% static 'images/small.jpeg'%}" ALT="home_icon" WIDTH=60 HEIGHT=60></a>
           <li><a href="{% url 'jobboard' %}">Job Board</a></li>
-          <!-- < li><a href="{% url 'index1' %}">test API calls</a></li> -->
-
-          <li><a href="{% url 'index1' %}">comming soon...</a></li>
-
+          <li><a href="{% url 'employees' %}">All employees</a></li>
+          <li><a href="">filled Jobs</a></li>
+            
           {% if user.is_authenticated %}
      <li>User: {{ user.get_username }}</li>
-        <li>You are Logged In!</li>
+        <li><a href="{% url 'my-jobs' %}">My Jobs</a></li>
+        <li><a href="{% url 'my-jobs' %}">Create Job</a></li>
      <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>   
    {% else %}
      <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>   

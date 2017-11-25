@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'UserControls.apps.UsercontrolsConfig',
     'universe.apps.UniverseConfig',
-    'dashboard.apps.DashboardConfig',
+    'jobboard.apps.JobboardConfig',
     'rest_framework',
 ]
 

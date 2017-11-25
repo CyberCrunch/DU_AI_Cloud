@@ -1,0 +1,38 @@
+{% extends "base_job.html" %}
+
+{% block content %}
+
+<h1>Local Job Board</h1>
+
+  <p>Welcome to the ODY <em>Job Board</em>. This is a first demonstration for 
+  the future organization management platform.</p>
+
+<h2>Dynamic content</h2>
+
+<p>The following jobs are available in your Objective Driveyards:</p>
+<ul>
+<li><strong>Jobs:</strong> {{ num_jobs }}</li>
+<li><strong>job instances:</strong> {{ num_jinstances }}</li>
+<li><strong>Jobs filled:</strong> {{ num_jinstances_filled }}</li>
+<li><strong>Employees:</strong> {{ num_employees }}</li>
+</ul>
+
+<h1>Job List</h1>
+
+List not working... Workaround: <a href="list">go to job-list</a>
+    {% if jobboard %}
+    <ul>
+<li><strong>Employees:</strong> {{ num_employees }}</li>
+
+      {% for job in jobboard %}
+      <li>
+        <a href="{{ job.get_absolute_url }}">{{ job.title }}</a> ({{job.summary}})
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>There are no jobs in the list.</p>
+    {% endif %}       
+    
+{% endblock %}

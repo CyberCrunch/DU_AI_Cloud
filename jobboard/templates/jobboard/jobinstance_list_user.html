@@ -1,0 +1,19 @@
+{% extends "base_job.html" %}
+
+{% block content %}
+    <h1>My Jobs</h1>
+
+    {% if jobinstance_list %}
+    <ul>
+
+      {% for jobinst in jobinstance_list %} 
+      <li class="{% if jobinst.is_overdue %}text-danger{% endif %}">
+        <a href="{% url 'job-detail' jobinst.job.pk %}">{{jobinst.job.title}}</a> ({{ jobinst.job.salary }})        
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>You have no job.</p>
+    {% endif %}       
+{% endblock %}

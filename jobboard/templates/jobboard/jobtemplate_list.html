@@ -1,0 +1,19 @@
+{% extends "base_job.html" %}
+
+{% block content %}
+    <h1>Job List</h1>
+
+    {% if jobtemplate_list %}
+    <ul>
+
+      {% for jobtemplate in jobtemplate_list %}
+      <li>
+        <a href="{{ job.get_absolute_url }}">{{ jobtemplate.title }}</a> ({{jobtemplate.summary}})
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>There are no jobs in the list.</p>
+    {% endif %}       
+{% endblock %}

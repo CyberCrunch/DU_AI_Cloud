@@ -58,7 +58,7 @@ urlpatterns = [
     
     url(r'^universe/', include('universe.urls')),
     
-    url(r'^jobs/', include('dashboard.urls'))
+    url(r'^jobboard/', include('jobboard.urls'))
 
 ]
 
