@@ -22,7 +22,7 @@ class Task(models.Model):
     Model representing a specific copy of a book (i.e. that can be borrowed from the library).
     """
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text="Unique ID for this particular book across whole library")
-    job = models.ForeignKey('Operation', on_delete=models.SET_NULL, null=True) 
+    #job = models.ForeignKey('Operation', on_delete=models.SET_NULL, null=True) 
     summary = models.TextField(max_length=1000, help_text="Enter a brief description of the job")
     salary = models.TextField(max_length=1000, help_text="Enter how the fullfiled job will be rewarded")
     
