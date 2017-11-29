@@ -1,0 +1,19 @@
+{% extends "base_job.html" %}
+
+{% block content %}
+    <h1>Operation List</h1>
+
+    {% if operation_list %}
+    <ul>
+
+      {% for Operation in operation_list %}
+      <li>
+        <a href="{{ Operation.get_absolute_url }}">{{ Operation.title }}</a> ({{Operation.summary}})
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>There are no Operations available.</p>
+    {% endif %}       
+{% endblock %}

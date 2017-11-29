@@ -11,8 +11,8 @@ urlpatterns = [
           url(r'^employee/(?P<pk>\d+)$', views.EmployeeDetailView.as_view(), name='employee-detail'),
 
           #url(r'^createjob/$', views.CreateJobView, name='joblist'),
-          url(r'^list/$', views.JobListView.as_view(), name='job-list'),
-          url(r'^job/(?P<pk>\d+)$', views.JobDetailView.as_view(), name='job-detail'),
+          url(r'^list/$', views.OperationListView.as_view(), name='op-list'),
+          url(r'^operation/(?P<pk>\d+)$', views.OperationDetailView.as_view(), name='op-detail'),
           url(r'^myjobs/$', views.FilledJobsListView.as_view(), name='my-jobs'),
           url(r'^job/(?P<pk>[-\w]+)/create/$', views.Create_Project_Legate, name='create-job-legate'),
           

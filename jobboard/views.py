@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from django.views import generic
-from .models import Employee, Type, JobTemplate, JobInstance
+from .models import Employee, Type, Operation, Task
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import permission_required
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 import datetime
+from django.contrib.auth.models import User, Group
 
 from .forms import CreateJobForm
 
@@ -17,10 +18,10 @@ def jobboard(request):
     View function for home page of site.
     """
     # Generate counts of some of the main objects
-    num_jobs=JobTemplate.objects.all().count()
-    num_jinstances=JobInstance.objects.all().count()
+    num_jobs=Operation.objects.all().count()
+    num_jinstances=Task.objects.all().count()
     # Available books (status = 'a')
-    num_jinstances_filled=JobInstance.objects.filter(status__exact='f').count()
+    num_jinstances_filled=Task.objects.filter(status__exact='f').count()
     num_employees =Employee.objects.count()  # The 'all()' is implied by default.
  
     # Number of visits to this view, as counted in the session variable.
@@ -40,8 +41,8 @@ def jobboard(request):
     
     
 
-class JobListView(generic.ListView):
-    model = JobTemplate
+class OperationListView(generic.ListView):
+    model = Operation
 
 '''    
     def get_context_data(self, **kwargs):
@@ -51,8 +52,15 @@ class JobListView(generic.ListView):
         context['some_data'] = 'This is just some data'
         return context
 '''        
-class JobDetailView(generic.DetailView):
-    model = JobTemplate
+class OperationDetailView(generic.DetailView):
+    model = Operation
+
+class TaskListView(generic.ListView):
+    model = Task
+
+class TaskDetailView(generic.DetailView):
+    model = Task
+    
     
 class EmployeeListView(generic.ListView):
     model = Employee
@@ -63,19 +71,19 @@ class FilledJobsListView(LoginRequiredMixin,generic.ListView):
     """
     Generic class-based view listing books on loan to current user. 
     """
-    model = JobInstance
-    template_name ='jobboard/jobinstance_list_user.html'
+    model = Task
+    template_name ='jobboard/Task_list_user.html'
     paginate_by = 10
     
     def get_queryset(self):
-        return JobInstance.objects.filter(employer=self.request.user).filter(status__exact='o').order_by('employer')
+        return Task.objects.filter(employer=self.request.user).filter(status__exact='o').order_by('employer')
         
     
 def CreateJobView(request, pk):
     """
     View function for renewing a specific BookInstance by librarian
     """
-    #job_form=get_object_or_404(JobInstance, pk = pk)
+    #job_form=get_object_or_404(Task, pk = pk)
 
 
     # If this is a POST request then process the Form data
@@ -106,7 +114,7 @@ def Create_Project_Legate(request, pk):
     """
     View function for renewing a specific BookInstance by librarian
     """
-    job_inst=get_object_or_404(JobInstance, pk = pk)
+    job_inst=get_object_or_404(Task, pk = pk)
 
     # If this is a POST request then process the Form data
     if request.method == 'POST':

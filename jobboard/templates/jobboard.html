@@ -2,19 +2,19 @@
 
 {% block content %}
 
-<h1>Local Job Board</h1>
+<h1>List of running Operations</h1>
 
-  <p>Welcome to the ODY <em>Job Board</em>. This is a first demonstration for 
+  <p>Welcome to the ODY <em>Member Board</em>. This is a first demonstration for 
   the future organization management platform.</p>
 
 <h2>Dynamic content</h2>
 
-<p>The following jobs are available in your Objective Driveyards:</p>
+<p>The following operations are currently being run in Objective Driveyards:</p>
 <ul>
-<li><strong>Jobs:</strong> {{ num_jobs }}</li>
-<li><strong>job instances:</strong> {{ num_jinstances }}</li>
-<li><strong>Jobs filled:</strong> {{ num_jinstances_filled }}</li>
-<li><strong>Employees:</strong> {{ num_employees }}</li>
+<li><strong>Operations:</strong> {{ num_jobs }}</li>
+<li><strong>Tasks:</strong> {{ num_jinstances }}</li>
+<li><strong>Tasks filled:</strong> {{ num_jinstances_filled }}</li>
+<li><strong>Participatns:</strong> {{ num_employees }}</li>
 </ul>
 
 <h1>Job List</h1>

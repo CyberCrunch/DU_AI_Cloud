@@ -1,14 +1,14 @@
 {% extends "base_job.html" %}
 
 {% block content %}
-    <h1>My Jobs</h1>
+    <h1>My Tasks</h1>
 
-    {% if jobinstance_list %}
+    {% if task_list %}
     <ul>
 
-      {% for jobinst in jobinstance_list %} 
-      <li class="{% if jobinst.is_overdue %}text-danger{% endif %}">
-        <a href="{% url 'job-detail' jobinst.job.pk %}">{{jobinst.job.title}}</a> ({{ jobinst.job.salary }})        
+      {% for task in task_list %} 
+      <li class="{% if Task.is_overdue %}text-danger{% endif %}">
+        <a href="{% url 'task-detail' Task.Operation.pk %}">{{task.operation.title}}</a> ({{ task.salary }})        
       </li>
       {% endfor %}
     </ul>

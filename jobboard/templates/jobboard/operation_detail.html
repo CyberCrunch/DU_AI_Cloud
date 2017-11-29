@@ -1,8 +1,12 @@
 {% extends "base_job.html" %}
 
 {% block content %}
-  <h1>Title: {{ jobtemplate.title }}</h1>
-    <p><strong>Summary:</strong> {{ jobtemplate.summary }}</p>
+  <h1>Title: {{ operation.title }}</h1>
+    <p><strong>Summary:</strong> {{ operation.summary }}</p>
+    <p><strong>Operation leader:</strong> {{ operation.employer }}</p>
+    <p><strong>Operation type:</strong>  {% for type in operation.jtype.all %} {{ type }}{% if not forloop.last %}, {% endif %}{% endfor %} </p>
+    <p><strong>Tasks:</strong> {{ operation.tasklist }}</p>
+{% endblock %}
 
 <!--
   <p><strong>Client:</strong> <a href="">{{ job.client }}</a></p> <!-- author detail link not yet defined -->
@@ -22,4 +26,3 @@
     {% endfor %}
   </div>
 -->
-{% endblock %}

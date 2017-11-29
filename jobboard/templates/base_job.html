@@ -25,9 +25,9 @@
           {% load static %} 
           <a href="{% url 'index1' %}">
           <IMG SRC="{% static 'images/small.jpeg'%}" ALT="home_icon" WIDTH=60 HEIGHT=60></a>
-          <li><a href="{% url 'jobboard' %}">Job Board</a></li>
-          <li><a href="{% url 'employees' %}">All employees</a></li>
-          <li><a href="">filled Jobs</a></li>
+          <li><a href="{% url 'jobboard' %}">List of Operations</a></li>
+          <li><a href="{% url 'employees' %}">List of Members</a></li>
+          <li><a href="">filled Tasks</a></li>
             
           {% if user.is_authenticated %}
      <li>User: {{ user.get_username }}</li>
