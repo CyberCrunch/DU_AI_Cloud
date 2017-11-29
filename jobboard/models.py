@@ -47,7 +47,7 @@ class Task(models.Model):
         """
         String for representing the Model object
         """
-        return '%s (%s)' % (self.id,self.job.title)
+        return '%s (%s)' % (self.id,self.summary)
 #    @property
 #    def is_overdue(self):
 #        if self.due_back and date.today() > self.due_back:
