@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '%r@+-04iv2k!h7)fb5*m3au4x$%%u#
 #DEBUG = True
 DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
-ALLOWED_HOSTS = ['ai-cloud.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['dualuniverse.ai','ai-cloud.herokuapp.com','127.0.0.1']
 
 
 # Application definition
