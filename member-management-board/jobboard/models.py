@@ -94,26 +94,3 @@ class Operation(models.Model):
     display_type.short_description = 'Type'
 
         
-
-
-class Employee(models.Model):
-    """
-    Model representing an author.
-    """
-    nickname = models.CharField(max_length=100)
-    organization = models.CharField(max_length=100)
-    date_of_birth = models.DateField(null=True, blank=True)
-    date_of_death = models.DateField('died', null=True, blank=True)
-    
-    def get_absolute_url(self):
-        """
-        Returns the url to access a particular author instance.
-        """
-        return reverse('employee-detail', args=[str(self.id)])
-    
-
-    def __str__(self):
-        """
-        String for representing the Model object.
-        """
-        return '%s, %s' % (self.nickname, self.organization) 
